@@ -277,9 +277,9 @@
   #define THERMAL_PROTECTION_PERIOD 40        // Seconds
   #define THERMAL_PROTECTION_HYSTERESIS 4     // Degrees Celsius
 
-  //#define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
+  #define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
   #if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
-    //#define NO_FAN_SLOWING_IN_PID_TUNING    // Don't slow fan speed during M303
+    #define NO_FAN_SLOWING_IN_PID_TUNING    // Don't slow fan speed during M303
   #endif
 
   /**
@@ -455,7 +455,7 @@
 // the minimum temperature your thermistor can read. The lower the better/safer.
 // This shouldn't need to be more than 30 seconds (30000)
 //#define MILLISECONDS_PREHEAT_TIME 30000
-
+ 
 // @section extruder
 
 // Extruder runout prevention.
@@ -1357,14 +1357,14 @@
 
   // Reverse SD sort to show "more recent" files first, according to the card's FAT.
   // Since the FAT gets out of order with usage, SDCARD_SORT_ALPHA is recommended.
-  #define SDCARD_RATHERRECENTFIRST
+  //#define SDCARD_RATHERRECENTFIRST
 
   #define SD_MENU_CONFIRM_START             // Confirm the selected SD file before printing
 
   //#define NO_SD_AUTOSTART                 // Remove auto#.g file support completely to save some Flash, SRAM
-  #define MENU_ADDAUTOSTART               // Add a menu option to run auto#.g files
+  //#define MENU_ADDAUTOSTART               // Add a menu option to run auto#.g files
 
-  #define BROWSE_MEDIA_ON_INSERT          // Open the file browser when media is inserted
+  //#define BROWSE_MEDIA_ON_INSERT          // Open the file browser when media is inserted
 
   //#define MEDIA_MENU_AT_TOP               // Force the media menu to be listed on the top of the main menu
 
@@ -1543,7 +1543,7 @@
    *
    * :[ 'LCD', 'ONBOARD', 'CUSTOM_CABLE' ]
    */
-  #define SDCARD_CONNECTION ONBOARD
+  #define SDCARD_CONNECTION LCD
 
   // Enable if SD detect is rendered useless (e.g., by using an SD extender)
   //#define NO_SD_DETECT
@@ -3663,7 +3663,7 @@
 //#define M114_REALTIME       // Real current position based on forward kinematics
 //#define M114_LEGACY         // M114 used to synchronize on every call. Enable if needed.
 
-//#define REPORT_FAN_CHANGE   // Report the new fan speed when changed by M106 (and others)
+#define REPORT_FAN_CHANGE   // Report the new fan speed when changed by M106 (and others)
 
 /**
  * Set the number of proportional font spaces required to fill up a typical character space.
@@ -3687,7 +3687,7 @@
 //#define MEATPACK_ON_SERIAL_PORT_1
 //#define MEATPACK_ON_SERIAL_PORT_2
 
-//#define GCODE_CASE_INSENSITIVE  // Accept G-code sent to the firmware in lowercase
+#define GCODE_CASE_INSENSITIVE  // Accept G-code sent to the firmware in lowercase
 
 //#define REPETIER_GCODE_M360     // Add commands originally from Repetier FW
 
@@ -3714,6 +3714,7 @@
  * Execute certain G-code commands immediately after power-on.
  */
 //#define STARTUP_COMMANDS "M17 Z"
+#define STARTUP_COMMANDS "G28"
 
 /**
  * G-code Macros
@@ -3839,7 +3840,7 @@
  */
 #define HOST_ACTION_COMMANDS
 #if ENABLED(HOST_ACTION_COMMANDS)
-  //#define HOST_PAUSE_M76
+  #define HOST_PAUSE_M76
   #define HOST_PROMPT_SUPPORT
   //#define HOST_START_MENU_ITEM  // Add a menu item that tells the host to start
 #endif
