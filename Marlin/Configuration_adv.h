@@ -3712,7 +3712,7 @@
  * Execute certain G-code commands immediately after power-on.
  */
 //#define STARTUP_COMMANDS "M17 Z"
-#define STARTUP_COMMANDS "G28"
+//#define STARTUP_COMMANDS "G28"
 
 /**
  * G-code Macros
