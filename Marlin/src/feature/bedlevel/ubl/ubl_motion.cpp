@@ -19,6 +19,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
+
 #include "../../../inc/MarlinConfig.h"
 
 #if ENABLED(AUTO_BED_LEVELING_UBL)
@@ -323,6 +324,8 @@
     #define DELTA_SEGMENT_MIN_LENGTH 0.25 // SCARA minimum segment size is 0.25mm
   #elif ENABLED(DELTA)
     #define DELTA_SEGMENT_MIN_LENGTH 0.10 // mm (still subject to DELTA_SEGMENTS_PER_SECOND)
+  #elif ENABLED(POLARGRAPH)
+    #define DELTA_SEGMENT_MIN_LENGTH 0.10 // mm (still subject to DELTA_SEGMENTS_PER_SECOND)
   #else // CARTESIAN
     #ifdef LEVELED_SEGMENT_LENGTH
       #define DELTA_SEGMENT_MIN_LENGTH LEVELED_SEGMENT_LENGTH
@@ -337,7 +340,7 @@
    * Returns true if did NOT move, false if moved (requires current_position update).
    */
 
-  bool _O2 unified_bed_leveling::line_to_destination_segmented(const_feedRate_t scaled_fr_mm_s) {
+  bool __O2 unified_bed_leveling::line_to_destination_segmented(const_feedRate_t scaled_fr_mm_s) {
 
     if (!position_is_reachable(destination))  // fail if moving outside reachable boundary
       return true;                            // did not move, so current_position still accurate

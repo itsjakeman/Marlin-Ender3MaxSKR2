@@ -28,7 +28,10 @@
 // Onboard I2C EEPROM
 #if NO_EEPROM_SELECTED
   #define I2C_EEPROM
-  #define MARLIN_EEPROM_SIZE 0x1000                 // 4KB
+  #define SOFT_I2C_EEPROM
+  #define MARLIN_EEPROM_SIZE 0x1000                 // 4K
+  #define I2C_SDA_PIN                      PB7
+  #define I2C_SCL_PIN                      PB6
   #undef NO_EEPROM_SELECTED
 #endif
 
@@ -52,7 +55,7 @@
 #define FAN1_PIN                           PC7
 
 #ifndef CONTROLLER_FAN_PIN
-  #define CONTROLLER_FAN_PIN               -1
+  #define CONTROLLER_FAN_PIN               FAN1_PIN
 #endif
 
 #if HAS_TMC_UART

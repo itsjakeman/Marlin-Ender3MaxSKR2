@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -30,9 +30,9 @@
 
 #if NO_EEPROM_SELECTED
   #define FLASH_EEPROM_EMULATION
-  #define EEPROM_PAGE_SIZE      (0x800) // 2KB
+  #define EEPROM_PAGE_SIZE      (0x800) // 2K
   #define EEPROM_START_ADDRESS  (0x08000000 + (STM32_FLASH_SIZE) * 1024 - 2 * EEPROM_PAGE_SIZE)
-  #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2KB
+  #define MARLIN_EEPROM_SIZE    EEPROM_PAGE_SIZE  // 2K
 #endif
 
 //=============================================================================
@@ -201,9 +201,9 @@
   #define BTN_EN1                    EXP1_03_PIN
   #define BTN_EN2                    EXP1_06_PIN
   #define BTN_ENC                    EXP1_04_PIN
-  #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_2 DELAY_NS(200)
-  #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
+  #define BOARD_ST7920_DELAY_1               125
+  #define BOARD_ST7920_DELAY_2               200
+  #define BOARD_ST7920_DELAY_3               125
 
 #elif EITHER(ZONESTAR_12864OLED, ZONESTAR_12864OLED_SSD1306)
 
@@ -224,7 +224,7 @@
   #define LCD_PINS_RS                EXP1_05_PIN  // = LCD_RESET_PIN
   #define LCD_PINS_DC                EXP1_07_PIN  // DC
   #define DOGLCD_CS                  EXP1_08_PIN  // CS
-  #define DOGLCD_A0                  LCD_PINS_DC  // A0 = DC
+  #define DOGLCD_A0                  LCD_PINS_DC
   #define DOGLCD_MOSI                EXP1_10_PIN  // SDA
   #define DOGLCD_SCK                 EXP1_09_PIN  // SCK
   // Encoder
